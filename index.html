@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Neighborhood Map GoogleMaps API">
   <meta name="author" content="Wesley Liang">
+
+  <link href="css/styles.css" rel="stylesheet">
+
   <title>Google Maps</title>
 </head>
 
 <body>
   <div class="container">
-    <footer>
-      <p>&copy; WesleyMaps 2017 </p>
-    </footer>
+    <!--Initialize Google Map view -->
+    <div id="map">
+      <script>
+        function initMap() {
+          var map = new google.maps.Map(document.getElementById(
+            'map'), {
+            center: { //center around San Francisco
+              lat: 37.7679309,
+              lng: -122.4582052
+            },
+            zoom: 11
+          });
+        }
+      </script>
+    </div>
   </div>
+  
+  <script async src="js/jquery-3.2.1.min.js"></script>
+  <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCDtLO-nq43U-BWDIQKsJfDnAjB6VM245o&callback=initMap"></script>
 </body>
 
 </html>
