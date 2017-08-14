@@ -17,17 +17,17 @@
   <div id="main" class="container-fluid">
     <div class="row">
       <div id="locations-list" class="col-md-2">
-        <header>
+        <!-- <header> -->
         <form>
           <div class="form-group">
-            <label id="label-header" for="search-bar">Restaurants Near You</label>
+            <label id="label-header" for="search-bar">My List Of Eats</label>
             <input type="text" class="search-query" id="search-input" placeholder="Filter">
           </div>
         </form>
 
         <ul class="list-group">
-          <li class="list-group-item"> First </li>
-          <li class="list-group-item"> Second Item </li>
+          <li class="list-group-item" data-bind="text: viewName"></li>
+          <li class="list-group-item" data-bind="text: "> Second Item </li>
           <li class="list-group-item"> Third Item </li>
         </ul>
       </div>
@@ -53,10 +53,11 @@
       </div>
     </div>
   </div>
-  <!-- <script async src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script> -->
   <script async src="js/jquery-3.2.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script async src="js/knockout-3.4.2.js"></script>
+  <script async src="views/viewmodel.js"></script>
+  <script async src="model/model.js"></script>
+  <script async src="js/bootstrap.min.js"></script>
   <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCDtLO-nq43U-BWDIQKsJfDnAjB6VM245o&callback=initMap"></script>
 </body>
 
