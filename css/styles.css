@@ -5,10 +5,13 @@
 }
 
 .form-group {
-  font-weight: bold;
   text-align: center;
 }
 
 #label-header {
   font-size: 150%;
+}
+
+#locations-list {
+  background-color:#ff3333;
 }
