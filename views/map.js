@@ -56,6 +56,7 @@ var mapModel = {
       title: 'Fish'
     });
 
+    //set window information for each marker
     var gardenWindow = new google.maps.InfoWindow({
       content: 'Garden Fresh'
     });
@@ -80,10 +81,30 @@ var mapModel = {
       content: 'Fish'
     });
 
+    //initialize markers
     gardenMarker.addListener('click', function() {
       gardenWindow.open(map, gardenMarker);
     });
 
+    gogiMarker.addListener('click', function() {
+      gogiWindow.open(map, gogiMarker);
+    });
+
+    maruMarker.addListener('click', function() {
+      maruWindow.open(map, maruMarker);
+    });
+
+    nooriMarker.addListener('click', function() {
+      nooriWindow.open(map, nooriMarker);
+    });
+
+    codMarker.addListener('click', function() {
+      codWindow.open(map, codMarker);
+    });
+
+    fishMarker.addListener('click', function() {
+      fishWindow.open(map, fishMarker);
+    });
 
   }
 };
