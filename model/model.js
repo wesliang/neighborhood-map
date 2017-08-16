@@ -53,5 +53,6 @@ var Restaurant = function(data) {
   this.info = data.info;
   this.url = data.url;
   this.rating = data.rating;
-
+  this.location = data.location;
+  this.marker = data.marker;
 };
