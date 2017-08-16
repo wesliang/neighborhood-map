@@ -4,14 +4,19 @@
   float: right;
 }
 
-.form-group {
-  text-align: center;
-}
-
 #label-header {
   font-size: 150%;
 }
 
 #locations-list {
   background-color:#ff3333;
+}
+
+.marker {
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+.form-group {
+  text-align: center;
 }
