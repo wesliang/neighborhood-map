@@ -60,8 +60,9 @@ var mapModel = {
         infowindow.setContent('<div>' + marker.title + '</div>');
         infowindow.open(map, marker);
 
+        //reset zoom on map after closing infowindow
         infowindow.addListener('closeclick', function() {
-          infowindow.setMarker(null);
+          map.setZoom(11);
         });
       }
     }
