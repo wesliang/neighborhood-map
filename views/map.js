@@ -19,7 +19,7 @@ var mapModel = {
     //var markers = [];
 
     //init bounds and info window objects
-    var largeInfowindow = new google.maps.InfoWindow();
+    largeInfowindow = new google.maps.InfoWindow();
     var bounds = new google.maps.LatLngBounds();
 
     //shorten name
@@ -44,8 +44,6 @@ var mapModel = {
 
       //onclick event for each marker to have a info window and move to it
       marker.addListener('click', function() {
-        //addMarkerToList(self);
-        // console.log(marker.property.name);
         populateInfoWindow(this, largeInfowindow);
         moveToMarker(this, position);
       });
