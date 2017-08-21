@@ -27,6 +27,7 @@ var Restaurant = function(data) {
     //capture id, contact, location, categories etc into results
 		var results = json.response.venues[0];
 
+    //assign objects from JSON to values in our object
     self.siteURL = results.url === undefined ? '' : results.url;
 		self.street = results.location.formattedAddress[0];
     self.city = results.location.formattedAddress[1];

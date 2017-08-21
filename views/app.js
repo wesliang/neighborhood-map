@@ -2,17 +2,14 @@
 var map;
 
 //for foursquare API
-// var clientID;
-// var secretID;
+// var clientID = 'NRUWKGX3LTILSCAR3VXHCS2Y1CEVBABBC2Z0ILAWZYI2ZKWC';
+// var secretID = 'TX0HTD15ZEMDU4ISKT521WHVYJQSYPN0GDIZZ3BXR040IM32';
 
 var viewModel = function() {
   //reference to the original 'this', aka viewModel object
   var self = this;
 
-  //secret keys
-  // clientID = 'NRUWKGX3LTILSCAR3VXHCS2Y1CEVBABBC2Z0ILAWZYI2ZKWC';
-  // secretID = 'TX0HTD15ZEMDU4ISKT521WHVYJQSYPN0GDIZZ3BXR040IM32';
-
+  //initialize map here
   map = new google.maps.Map(document.getElementById('map'), {
    center: { //center around San Francisco
      lat: 37.6773748,
@@ -42,22 +39,20 @@ var viewModel = function() {
     var filter = self.query().toLowerCase();
   		if (!filter) {
   			self.restaurantList().forEach(function(item){
-          //if filter doesn't exist and item show is on, show on map
+          //if filter doesn't exist iterate and show all on map
   				item.show(true);
   			});
-        //return the list thus far
   			return self.restaurantList();
   		} else {
         //pass list into utility function
   			return ko.utils.arrayFilter(self.restaurantList(), function(item) {
-          var result = (item.name.toLowerCase().search(filter) >= 0);
+          var name = item.name.toLowerCase();
+          var result = (name.includes(filter));
   				item.show(result);
-
-          return item.name.toLowerCase() == filter;
+          return result;
   			});
   		}
   	});
-
 };
 
 var startApp = function() {
