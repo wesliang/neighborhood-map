@@ -1,9 +1,17 @@
 //let map be global to get accessed by other funcs
 var map;
 
+//for foursquare API
+// var clientID;
+// var secretID;
+
 var viewModel = function() {
   //reference to the original 'this', aka viewModel object
   var self = this;
+
+  //secret keys
+  // clientID = 'NRUWKGX3LTILSCAR3VXHCS2Y1CEVBABBC2Z0ILAWZYI2ZKWC';
+  // secretID = 'TX0HTD15ZEMDU4ISKT521WHVYJQSYPN0GDIZZ3BXR040IM32';
 
   map = new google.maps.Map(document.getElementById('map'), {
    center: { //center around San Francisco
@@ -28,22 +36,27 @@ var viewModel = function() {
     google.maps.event.trigger(this.marker, 'click');
   };
 
+  //filter the list
   this.filtered = ko.computed( function() {
+    //check if filter exists
     var filter = self.query().toLowerCase();
-  		if (!filter) {
+  		if (filter === undefined) {
   			self.restaurantList().forEach(function(item){
-  				if (item.visible() === true) {
+          //if filter doesn't exist and item show is on, show on map
+  				if (item.show() === true) {
             item.marker.setMap(map);
           } else {
+            //otherwise hide
             item.marker.setMap(null);
           }
   			});
+        //return the list thus far
   			return self.restaurantList();
   		} else {
   			return ko.utils.arrayFilter(self.restaurantList(), function(item) {
   				var string = item.name.toLowerCase();
   				var result = (string.search(filter) >= 0);
-  				item.visible(result);
+  				item.show(result);
   				return result;
   			});
   		}
