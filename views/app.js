@@ -40,24 +40,20 @@ var viewModel = function() {
   this.filtered = ko.computed( function() {
     //check if filter exists
     var filter = self.query().toLowerCase();
-  		if (filter === undefined) {
+  		if (!filter) {
   			self.restaurantList().forEach(function(item){
           //if filter doesn't exist and item show is on, show on map
-  				if (item.show() === true) {
-            item.marker.setMap(map);
-          } else {
-            //otherwise hide
-            item.marker.setMap(null);
-          }
+  				item.show(true);
   			});
         //return the list thus far
   			return self.restaurantList();
   		} else {
+        //pass list into utility function
   			return ko.utils.arrayFilter(self.restaurantList(), function(item) {
-  				var string = item.name.toLowerCase();
-  				var result = (string.search(filter) >= 0);
+          var result = (item.name.toLowerCase().search(filter) >= 0);
   				item.show(result);
-  				return result;
+
+          return item.name.toLowerCase() == filter;
   			});
   		}
   	});
@@ -66,4 +62,8 @@ var viewModel = function() {
 
 var startApp = function() {
   ko.applyBindings(new viewModel());
+};
+
+var errorHandler = function () {
+  alert("Error could not load map.");
 };
