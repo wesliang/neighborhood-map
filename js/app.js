@@ -127,8 +127,8 @@ var ViewModel = function() {
   			});
   		}
   	});
-};
+  };
 
-var errorHandler = function () {
-  alert("Error could not load map.");
-};
+  function errorHandler () {
+    alert("Error could not load map.");
+  }
