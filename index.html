@@ -16,13 +16,11 @@
   <div id="main" class="container-fluid">
     <div class="row">
       <div id="locations-list" class="col-md-2">
-        <!-- <header> -->
-        <form>
-          <div class="form-group">
-            <label id="label-header" for="search-bar">My List Of Eats</label>
-            <input type="text" class="search-query" data-bind= "textInput: query, valueUpdate: 'afterkeydown'" id="search-input" placeholder="search">
-          </div>
+        <form class="form-group">
+          <label id="label-header">My List Of Eats</label>
+          <input type="text" class="search-query" data-bind= "textInput: query, valueUpdate: 'afterkeydown'" id="search-input" placeholder="search">
         </form>
+        <!-- <header> -->
         <ul data-bind="foreach: filtered" class="list-group">
           <li class="list-group-item" data-bind="text: name, click: $parent.listClick"></li>
         </ul>
@@ -32,8 +30,9 @@
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
-  <script src="js/knockout-3.4.2.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDtLO-nq43U-BWDIQKsJfDnAjB6VM245o" onerror="errorHandler"></script>
-  <script src="js/app.js"></script>
+  <script async src="js/knockout-3.4.2.js"></script>
+  <script async src="js/restaurantList.js"></script>
+  <script async src="js/app.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDtLO-nq43U-BWDIQKsJfDnAjB6VM245o&callback=initMap" onerror="errorHandler"></script>
 </body>
 </html>
