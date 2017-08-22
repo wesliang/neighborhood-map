@@ -3,7 +3,7 @@ var map;
 //global infowindow to prevent multiple windows from being created
 var infoWindow;
 
-// IIFE to init map after making viewmodel
+//initialize map
 function initMap(){
   map = new google.maps.Map(document.getElementById('map'), {
    center: { //center around San Francisco
@@ -129,6 +129,6 @@ var ViewModel = function() {
   	});
   };
 
-  function errorHandler () {
-    alert("Error could not load map.");
-  }
+function errorHandler() {
+  document.getElementById("map").innerHTML = "The map could not be loaded.";
+}
